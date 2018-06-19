@@ -3,28 +3,28 @@ package com.hua.huahua.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
 
-import com.hua.huahua.mvp.base.BasePresenter;
+import com.hua.huahua.R;
 import com.hua.huahua.mvp.base.BaseView;
+import com.hua.huahua.util.ToastUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView{
+public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     private Unbinder unbinder;
-    protected P presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(bindLayout());
+        setContentView(R.layout.activity_base);
+        LinearLayout baseContainer = findViewById(R.id.ll_base);
+        LayoutInflater.from(this).inflate(bindLayout(),baseContainer);
         unbinder = ButterKnife.bind(this);
         onActivityCreate();
-        if (presenter == null) {
-            presenter = createPresenter();
-        }
-        presenter.attach(this);
     }
 
     @Override
@@ -38,24 +38,22 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         if (unbinder != null) {
             unbinder.unbind();
         }
-        if (presenter!=null){
-            presenter.onDestroy();
-        }
     }
 
     @Override
     public void showLoading() {
-
     }
 
     @Override
     public void dismissLoading() {
+    }
 
+    public void toast(String msg) {
+        ToastUtil.Companion.show(this, msg);
     }
 
     protected abstract void onActivityCreate();
 
     protected abstract int bindLayout();
 
-    protected abstract P createPresenter();
 }

@@ -2,24 +2,34 @@ package com.hua.huahua.mvp.base;
 
 import java.lang.ref.WeakReference;
 
-public abstract class BasePresenter<M extends BaseModel, V extends BaseView> {
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
-    private M model;
-    private WeakReference<V> view;
+public abstract class BasePresenter<V extends BaseView> {
 
-    public void attach(V v) {
-        this.view = new WeakReference<V>(v);
-        if (model == null) {
-            model = createModel();
+    protected WeakReference<V> iView;
+
+    public BasePresenter(V v) {
+        this.iView = new WeakReference<V>(v);
+    }
+
+    public <T> Observable observable(Observable<T> observable) {
+        return observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public V getView() {
+        if (iView != null) {
+            return iView.get();
         }
+        return null;
     }
 
     public void onDestroy() {
-        if (view != null) {
-            view.clear();
-            view = null;
+        if (iView != null) {
+            iView.clear();
+            iView = null;
         }
     }
-
-    protected abstract M createModel();
 }
