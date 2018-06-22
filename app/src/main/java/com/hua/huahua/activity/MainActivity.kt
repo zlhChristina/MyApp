@@ -9,9 +9,10 @@ class MainActivity : BaseActivity() {
     private var exitTime: Long = 0
 
     override fun onActivityCreate() {
+        setTitle("首页")
     }
 
-    override fun bindLayout(): Int {
+    override fun bindContentLayout(): Int {
         return R.layout.activity_main
     }
 
@@ -28,4 +29,8 @@ class MainActivity : BaseActivity() {
         }
         return super.onKeyDown(keyCode, event)
     }
+
+//    override fun isHasTitleBar(): Boolean {
+//        return false
+//    }
 }

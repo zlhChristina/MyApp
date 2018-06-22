@@ -30,6 +30,7 @@ public abstract class BasePresenter<V extends BaseView> {
         if (iView != null) {
             iView.clear();
             iView = null;
+            System.gc(); //让系统回收
         }
     }
 }
