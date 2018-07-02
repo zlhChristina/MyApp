@@ -1,8 +1,8 @@
 package com.hua.huahua.activity
 
 import android.view.KeyEvent
+import com.hua.base.view.BaseActivity
 import com.hua.huahua.R
-import com.hua.huahua.base.BaseActivity
 
 class MainActivity : BaseActivity() {
 

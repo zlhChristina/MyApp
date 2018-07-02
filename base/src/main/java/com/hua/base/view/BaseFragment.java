@@ -1,4 +1,4 @@
-package com.hua.huahua.base;
+package com.hua.base.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.hua.huahua.util.ToastUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -35,6 +37,10 @@ public abstract class BaseFragment extends Fragment {
         if (unbinder != null) {
             unbinder.unbind();
         }
+    }
+
+    public void toast(String msg) {
+        ToastUtil.Companion.show(getActivity(), msg);
     }
 
     protected abstract void onViewCreate();

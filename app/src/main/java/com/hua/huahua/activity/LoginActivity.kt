@@ -1,6 +1,7 @@
 package com.hua.huahua.activity
 
-import com.hua.huahua.base.BaseActivity
+import com.hua.base.view.BaseActivity
+
 
 class LoginActivity: BaseActivity() {
 

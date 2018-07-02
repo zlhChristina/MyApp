@@ -1,4 +1,4 @@
-package com.hua.huahua.base;
+package com.hua.base.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hua.huahua.R;
-import com.hua.huahua.mvp.base.BaseView;
+import com.hua.base.R;
+import com.hua.base.manager.AppManager;
+import com.hua.base.mvp.BaseView;
 import com.hua.huahua.util.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -44,6 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
         unbinder = ButterKnife.bind(this);
         onActivityCreate();
+        AppManager.Companion.getInstance().addActivity(this);
     }
 
     @Override
@@ -78,6 +80,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (unbinder != null) {
             unbinder.unbind();
         }
+        AppManager.Companion.getInstance().removeActivity(this);
     }
 
     @Override

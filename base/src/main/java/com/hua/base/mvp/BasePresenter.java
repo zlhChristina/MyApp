@@ -1,4 +1,4 @@
-package com.hua.huahua.mvp.base;
+package com.hua.base.mvp;
 
 import java.lang.ref.WeakReference;
 

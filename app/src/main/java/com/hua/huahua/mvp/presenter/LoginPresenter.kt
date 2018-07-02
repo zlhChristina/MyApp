@@ -1,12 +1,12 @@
 package com.hua.huahua.mvp.presenter
 
+import com.hua.base.http.HttpManager
+import com.hua.base.mvp.BasePresenter
 import com.hua.huahua.mvp.api.LoginApi
-import com.hua.huahua.mvp.base.BasePresenter
 import com.hua.huahua.mvp.bean.LoginResult
 import com.hua.huahua.mvp.view.LoginView
 import com.hua.huahua.mvp.http.ApiCallback
 import com.hua.huahua.mvp.http.BaseObserver
-import com.hua.huahua.mvp.http.HttpManager
 
 interface ILoginPresenter {
     fun login(name: String, psw: String)
@@ -27,5 +27,6 @@ class LoginPresenter<V : LoginView>(v: V) : BasePresenter<LoginView>(v), ILoginP
                         view.loginFail(msg)
                     }
                 }))
+
     }
 }

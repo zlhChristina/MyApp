@@ -1,4 +1,4 @@
-package com.hua.huahua.mvp.http;
+package com.hua.base.http;
 
 import com.hua.huahua.util.LogUtil;
 
