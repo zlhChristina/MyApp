@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.hua.base.R;
 import com.hua.base.manager.AppManager;
 import com.hua.base.mvp.BaseView;
+import com.hua.base.util.StatusBarUtil;
 import com.hua.huahua.util.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -42,7 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (bindContentLayout() != 0) {
             LayoutInflater.from(this).inflate(bindContentLayout(), baseContainer);
         }
-
+        StatusBarUtil.Companion.setStatusBar(this);
         unbinder = ButterKnife.bind(this);
         onActivityCreate();
         AppManager.Companion.getInstance().addActivity(this);

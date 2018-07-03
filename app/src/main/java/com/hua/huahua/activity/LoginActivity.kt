@@ -1,6 +1,7 @@
 package com.hua.huahua.activity
 
 import com.hua.base.view.BaseActivity
+import com.hua.huahua.R
 
 
 class LoginActivity: BaseActivity() {
@@ -10,6 +11,6 @@ class LoginActivity: BaseActivity() {
     }
 
     override fun bindContentLayout(): Int {
-        return 0
+        return R.layout.activity_login
     }
 }

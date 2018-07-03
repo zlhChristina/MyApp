@@ -9,7 +9,6 @@ class MainActivity : BaseActivity() {
     private var exitTime: Long = 0
 
     override fun onActivityCreate() {
-        setTitle("首页")
     }
 
     override fun bindContentLayout(): Int {
@@ -30,7 +29,7 @@ class MainActivity : BaseActivity() {
         return super.onKeyDown(keyCode, event)
     }
 
-//    override fun isHasTitleBar(): Boolean {
-//        return false
-//    }
+    override fun isHasTitleBar(): Boolean {
+        return false
+    }
 }
