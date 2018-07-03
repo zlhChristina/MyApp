@@ -16,7 +16,6 @@ public class HttpManager {
 
     public static final String BASE_URL = "";
     private Retrofit retrofit;
-    private static HttpManager manager;
 
     private HttpManager() {
         if (retrofit == null) {
@@ -48,12 +47,12 @@ public class HttpManager {
     });
 
     public static HttpManager getInstance() {
-        if (manager == null) {
-            synchronized (HttpManager.class) {
-                manager = new HttpManager();
-            }
-        }
-        return manager;
+        return Holder.manager;
+    }
+
+    //推荐单例写法
+    private static class Holder {
+        private static HttpManager manager = new HttpManager();
     }
 
     public <T> T create(Class<T> service) {
