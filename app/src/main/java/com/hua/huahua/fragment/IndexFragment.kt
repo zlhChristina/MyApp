@@ -2,6 +2,7 @@ package com.hua.huahua.fragment
 
 import com.hua.base.view.BaseFragment
 import com.hua.huahua.R
+import kotlinx.android.synthetic.main.fragment_index.*
 
 /**
  * Author: zlh
@@ -11,7 +12,7 @@ import com.hua.huahua.R
 class IndexFragment: BaseFragment() {
 
     override fun onViewCreate() {
-
+//        imageView.setOnClickListener {  }
     }
 
     override fun bindLayout(): Int {

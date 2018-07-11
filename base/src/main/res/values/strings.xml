@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">base</string>
+    <string name="loading_text">正在加载...</string>
+    <string name="loading_no_more">我是有底线的</string>
+    <string name="loading_error">加载出错,点击</string>
+    <string name="loading_again">重试</string>
 </resources>

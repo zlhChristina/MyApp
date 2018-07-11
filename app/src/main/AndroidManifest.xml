@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.MainActivity" />
 
         <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
@@ -29,7 +29,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.LoginActivity" />
+
+        <activity android:name=".activity.VideoActivity" />
 
     </application>
 
